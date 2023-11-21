@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>420-2N2-DM Native 1</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="github.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">420-2N2-DM Native 1</h1>
+</header>
+<h1 id="chapitre-1-les-bases-du-langage-go">Chapitre 1 : Les bases du langage Go</h1>
+<h2 id="section-1-le-premier-programme">Section 1 : Le premier programme</h2>
+<p>Ce n’est pas original, mais le premier programme dans un nouveau langage de programmation est presque toujours le fameux <em>Hello World !</em>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="kw">func</span> main() {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    fmt.Println(<span class="st">&quot;Hello World !&quot;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="explications">Explications</h3>
+<ol type="1">
+<li><code>package main</code> : tous les fichiers <code>.go</code> doivent débuter par une déclaration de paquet (<em>package</em>), et lorsqu’on veut un <em>exécutable</em>, le paquet doit être <code>main</code>, et il doit y avoir une fonction appelée <code>main</code>.</li>
+<li><code>import "fmt"</code> : on doit importer le paquet <code>fmt</code> pour pouvoir utiliser la fonction <code>Println</code> pour écrire du texte sur la sortie standard (<em>standard output</em>, ou <em>stdout</em>).</li>
+<li><code>func main() {</code> : déclaration de la fonction <code>main</code>, qui sera le point de départ de notre programme exécutable.</li>
+<li><code>fmt.Println("Hello World !")</code> : le contenu de la fonction est évidemment très simple, on écrit simplement une chaîne de caractères sur le <em>stdout</em>
+<ol type="1">
+<li><code>Print</code> –&gt; imprime (ou écrit), <code>ln</code> –&gt; ajoute un changement de ligne (un <code>\n</code>) à la fin</li>
+<li>les fonctions et les variables <strong>publiques</strong> commencent toujours avec une lettre majuscule en Go : si la fonction était définie avec une lettre minuscule au début, soit <code>println</code> à la place, la fonction serait <strong>privée</strong> et on ne pourrait pas l’appeler</li>
+<li>il existe plusieurs autres fonctions dans le paquet <code>fmt</code>, pour écrire sur le <em>stdout</em> ou ailleurs</li>
+</ol></li>
+<li><code>}</code> : les blocs de code sont délimités par des accolades (comme en Java), mais il n’y a pas de point-virgules <code>;</code> à la fin des lignes qui contiennent des énoncés qui ne nécessitent pas de définition de bloc</li>
+</ol>
+<h2 id="section-2-les-variables-et-les-types-de-base">Section 2 : les variables et les types de base</h2>
+<p>Référence : <a href="https://go.dev/tour/basics/11">A tour of Go</a></p>
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>catégorie</th>
+<th>types</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>logique</td>
+<td><code>bool</code></td>
+</tr>
+<tr class="even">
+<td>caractères</td>
+<td><code>string</code>, <code>rune</code> (alias pour <code>int32</code>)</td>
+</tr>
+<tr class="odd">
+<td>nombres entiers (signés)</td>
+<td><code>int</code>, <code>int8</code>, <code>int16</code>, <code>int32</code>, <code>int64</code></td>
+</tr>
+<tr class="even">
+<td>nombres entiers positifs (non signés)</td>
+<td><code>uint</code>, <code>uint8</code>, <code>uint16</code>, <code>uint32</code>, <code>uint64</code>, <code>uintptr</code></td>
+</tr>
+<tr class="odd">
+<td>données brutes</td>
+<td><code>byte</code> (alias for <code>uint8</code>)</td>
+</tr>
+<tr class="even">
+<td>nombres réels</td>
+<td><code>float32</code>, <code>float64</code></td>
+</tr>
+<tr class="odd">
+<td>nombres complexes</td>
+<td><code>complex64</code>, <code>complex128</code></td>
+</tr>
+</tbody>
+</table>
+<p>Les types <code>int</code>, <code>uint</code>, et <code>uintptr</code> ont une largeur de 32 bits sur un système 32-bit et une largeur de 64 bits sur un système 64-bit. Quand vous avez besoin d’un nombre entier, vous devriez utiliser <code>int</code> à moins d’avoir une raison spécifique d’utiliser une taille précise ou un nombre non-signé.</p>
+<h3 id="définition-avec-var-et-sans-valeur-initiale">Définition avec <code>var</code> et sans valeur initiale</h3>
+<p>Une déclaration de type <code>var</code> commence avec le mot-clé <code>var</code>, suivi par le nom de la variable ou une liste de noms de variables séparées par des virgules, et suivi par le type de la ou les variable(s).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">func</span> variables2a() {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    <span class="kw">var</span> i <span class="dt">int</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    <span class="kw">var</span> finished <span class="dt">bool</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    <span class="kw">var</span> name <span class="dt">string</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>    <span class="kw">var</span> x, y <span class="dt">float32</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>    fmt.Println(i)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>    fmt.Println(finished)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>    fmt.Println(name)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>    fmt.Println(x, y)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Les variables vont être automatiquement initialisées avec leur <strong>valeur zéro</strong> (ou leur valeur par défaut), qui dépend du type de la variable. Pour les nombres, la valeur par défaut est <code>0</code>, pour les booléens la valeur est <code>false</code>, et pour les chaînes de caractères, la chaîne vide <code>""</code> est utilisée comme valeur zéro.</p>
+<h3 id="définition-avec-var-et-valeur-initiale">Définition avec <code>var</code> et valeur initiale</h3>
+<p>On peut aussi préciser une valeur pour initialiser une variable au moment de la déclaration.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="kw">func</span> variables2b() {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>    <span class="kw">var</span> i <span class="dt">int</span> = <span class="dv">5</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>    <span class="kw">var</span> finished <span class="dt">bool</span> = <span class="ot">true</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>    <span class="kw">var</span> name <span class="dt">string</span> = <span class="st">&quot;Denis&quot;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>    <span class="kw">var</span> x, y <span class="dt">float32</span> = <span class="dv">2</span><span class="fl">.5</span>, <span class="dv">-1</span><span class="fl">.4</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>    fmt.Println(i)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>    fmt.Println(finished)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>    fmt.Println(name)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>    fmt.Println(x, y)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Si une valeur initiale est spécifiée, alors il n’est pas nécessaire de spécifier le type. La variable prendra automatiquement le type de la valeur utilisée. L’exemple suivant est équivalent à l’exemple précédent, à une différence près : les variables <code>x</code> et <code>y</code> sont maintenant de type <code>float64</code>, et non <code>float32</code>. Le type pour les nombres réels est <code>float64</code> par défaut.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="kw">func</span> variables2c() {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    <span class="kw">var</span> i = <span class="dv">5</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>    <span class="kw">var</span> finished = <span class="ot">true</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>    <span class="kw">var</span> name = <span class="st">&quot;Denis&quot;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>    <span class="kw">var</span> x, y = <span class="dv">2</span><span class="fl">.5</span>, <span class="dv">-1</span><span class="fl">.4</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>    fmt.Println(i)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>    fmt.Println(finished)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>    fmt.Println(name)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a>    fmt.Println(x, y)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>    fmt.Printf(<span class="st">&quot;%T</span><span class="ch">\n</span><span class="st">&quot;</span>, x)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a>}</span></code></pre></div>
+<h4 id="constantes">Constantes</h4>
+<p>On peut définir une constante en remplaçant <code>var</code> par <code>const</code>. Essayer de modifier la valeur d’une constante va créer une erreur de compilation.</p>
+<h3 id="définition-avec-le-raccourci">Définition avec le raccourci <code>:=</code></h3>
+<p>Il est possible d’utiliser un raccourci pour les définitions de variables avec valeurs initiales, à condition de définir seulement une variable à la fois. L’exemple suivant est équivalent à l’exemple précédent, sauf que <code>x</code> et <code>y</code> sont définies séparément.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="kw">func</span> variables2d() {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    i := <span class="dv">5</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    finished := <span class="ot">true</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    name := <span class="st">&quot;Denis&quot;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    x := <span class="dv">2</span><span class="fl">.5</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>    y := <span class="dv">-1</span><span class="fl">.4</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>    fmt.Println(i)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>    fmt.Println(finished)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>    fmt.Println(name)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>    fmt.Println(x, y)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a>    fmt.Printf(<span class="st">&quot;%T</span><span class="ch">\n</span><span class="st">&quot;</span>, x)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="section-3-les-différentes-façons-décrire-des-valeurs">Section 3 : les différentes façons d’écrire des valeurs</h2>
+<p>En plus des fonctions <code>Print</code>, <code>Println</code> et <code>Printf</code> qui sont utilisées pour écrire sur le <em>stdout</em>, le paquet <code>fmt</code> contient des fonctions pour écrire dans une chaîne de caractères (<code>Sprint</code>, <code>Sprintln</code>, <code>Sprintf</code>) ou dans un fichier (<code>Fprint</code>, <code>Fprintln</code>, <code>Fprintf</code>).</p>
+<ul>
+<li>Les fonctions se terminant par <em>ln</em> ajoutent un changement de ligne (<code>\n</code>) à la fin de la chaîne de caractères à écrire.</li>
+<li>Les fonctions se terminant par un <em>f</em> utilisent une syntaxe spéciale pour <strong>formatter</strong> les chaînes de caractères.</li>
+<li>Les fonctions commençant avec un <em>S</em> écrivent dans une chaîne de caractères (<em>S</em> pour <em>string</em>)</li>
+<li>Les fonctions commençant avec un <em>F</em> écrivent dans un fichier (<em>F</em> pour <em>file</em>)
+<ul>
+<li>Les fonctions sur les fichiers seront présentées plus loin, dans le chapitre consacré à la gestion des fichiers.</li>
+</ul></li>
+</ul>
+<h3 id="écrire-dans-une-chaîne-de-caractères">Écrire dans une chaîne de caractères</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="kw">func</span> print1() {</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>    year := <span class="dv">2024</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>    output := fmt.Sprintln(<span class="st">&quot;année =&quot;</span>, year)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>    fmt.Println(output)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Dans cet exemple simplifié, il serait préférable d’utiliser <code>Println</code> directement sur les deux valeurs à écrire (<code>fmt.Pprintln("année =", year)</code>), mais dans un exemple plus complexe, lorsqu’il est nécessaire d’écrire la même chaîne de caractères à plusieurs reprises, possiblement à des endroits différents (<em>stdout</em>, fichier, …), écrire dans une chaîne en premier peut simplifier le code plus loin dans le programme, surtout si on a besoin de formatter les valeurs de façon particulière.</p>
+<h3 id="écrire-selon-un-format">Écrire selon un format</h3>
+<p>Le même principe s’applique aux fonctions <code>Printf</code>, <code>Sprintf</code> et <code>Fprintf</code> : une chaîne de caractères décrivant le format doit être donnée comme premier argument aux fonctions, suivie d’une ou plusieurs valeurs à formatter.</p>
+<h4 id="nombres-entiers">Nombres entiers</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="kw">func</span> print2() {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>    year := <span class="dv">2024</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>    month := <span class="dv">1</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>    day := <span class="dv">5</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>    fmt.Printf(<span class="st">&quot;année = %d</span><span class="ch">\n</span><span class="st">&quot;</span>, year)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>    fmt.Printf(<span class="st">&quot;%d-%d-%d</span><span class="ch">\n</span><span class="st">&quot;</span>, year, month, day)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a>    fmt.Printf(<span class="st">&quot;%4d-%2d-%2d</span><span class="ch">\n</span><span class="st">&quot;</span>, year, month, day)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a>    fmt.Printf(<span class="st">&quot;%4d-%02d-%02d</span><span class="ch">\n</span><span class="st">&quot;</span>, year, month, day)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Sortie :</p>
+<pre><code>année = 2024
+2024-1-5</code></pre>
+<p>La chaîne de caractères décrivant le format (<em>chaîne de format</em>, ou <em>format string</em> en anglais) doit inclure au moins une entrée débutant par le caractère <code>%</code>, suivi par la description du format. Dans l’exemple précédent, il y a 2 sorties. Dans la première, la sortie sera identique à l’exemple précédent. Le <code>%d</code> va être remplacé par la valeur de la variable <code>year</code>. Le <code>d</code> indique que la valeur sera un nombre entier en base 10 (<em>décimal</em>). On pourrait utiliser</p>
+<ul>
+<li><code>%x</code> pour un nombre entier en base 16 (<em>hexadécimal</em>)</li>
+<li><code>%o</code> pour un nombre entier en base 8 (<em>octal</em>)</li>
+<li><code>%b</code> pour un nombre entier en base 2 (<em>binaire</em>)</li>
+</ul>
+<p>Dans la deuxième sortie, il y a 3 formats à l’intérieur de la chaîne de format, et ils sont séparés par des tirets qui ne font pas partie des formats, mais qui feront partie de la sortie. Le problème est que la sortie n’est pas très belle parce que les valeurs pour le mois et la journée sont plus petites que 10, alors qu’habituellement, on réserve 2 emplacements (ou 2 colonnes) pour ces valeurs même si elles n’en n’ont pas besoin.</p>
+<p>On peut remplacer le deuxième format par celui-ci : <code>"%4d-%2d-%2d\n"</code>. La sortie sera alors <code>2024- 1- 5</code>, ce qui n’est pas vraiment mieux. On spécifie que l’on veut avoir 4 colonnes pour l’année, 2 colonnes pour le mois et aussi 2 colonnes pour le jour, mais par défaut, les colonnes libres sont remplies avec des espaces.</p>
+<p>Si on remplace le deuxième format par celui-ci : <code>"%4d-%02d-%02d"</code>, alors les colonnes libres seront remplies par des zéros, ce qui correspond au format habituel <code>2024-01-05</code>.</p>
+<p>Cet exemple montre comment formatter une date dans un format précis, mais il existe plusieurs autres formats possibles. Formatter des dates est un besoin commun, qui doit supporter des formats différents selon les paramètres de localisation de l’application. Le paquet <code>time</code> peut être utilisé pour, entre autres, formatter les dates et les heures. Pour plus de détails : <a href="https://gosamples.dev/date-time-format-cheatsheet/">Date and time format in Go cheatsheet</a></p>
+<h4 id="formatter-dautres-types">Formatter d’autres types</h4>
+<p>Référence : <a href="https://pkg.go.dev/fmt">Paquet <code>fmt</code></a></p>
+<p>Les formats les plus courants :</p>
+<table>
+<thead>
+<tr class="header">
+<th>Formats</th>
+<th>Détails</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%v</code></td>
+<td>format par défaut</td>
+</tr>
+<tr class="even">
+<td><code>%d</code>, <code>%x</code>, <code>%b</code></td>
+<td>nombres entiers en base 10, 16 et 2</td>
+</tr>
+<tr class="odd">
+<td><code>%f</code>, <code>%F</code></td>
+<td>nombres réels, avec un point, sans exposant</td>
+</tr>
+<tr class="even">
+<td><code>%e</code>, <code>%e</code></td>
+<td>nombres réels, notation scientifique</td>
+</tr>
+<tr class="odd">
+<td><code>%s</code></td>
+<td>chaînes de caractères</td>
+</tr>
+<tr class="even">
+<td><code>%t</code></td>
+<td>booléen</td>
+</tr>
+<tr class="odd">
+<td><code>%T</code></td>
+<td>type de la valeur</td>
+</tr>
+</tbody>
+</table>
+<p>Pour les nombres réels, on peut spécifier la précision voulue.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a><span class="kw">func</span> print3() {</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>    x := <span class="dv">1234</span><span class="fl">.5678</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>    fmt.Printf(<span class="st">&quot;%f</span><span class="ch">\n</span><span class="st">%.2f</span><span class="ch">\n</span><span class="st">%.f</span><span class="ch">\n</span><span class="st">&quot;</span>, x, x, x)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Sortie :</p>
+<pre><code>1234.567800
+1234.57
+1235</code></pre>
+<h2 id="section-4-les-fonctions">Section 4 : les fonctions</h2>
+<p>Une déclaration de fonction a la structure suivante en Go :</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">func</span> nomFonction(param1 type1, param2 type2, ...) typeRetour {}</span></code></pre></div>
+<p>Une déclaration commence toujours par <code>func</code>, suivi du nom de la fonction, qui doit être écrite en <code>camelCase</code> ou en <code>PascalCase</code>. Comme pour les variables, si le nom de la fonction commence par une <strong>minuscule</strong>, la fonction sera <strong>privée</strong> et accessible seulement dans le paquet qui la contient, tandis que si le nom commence par une <strong>majuscule</strong>, la fonction sera <strong>publique</strong>, donc accessible de l’extérieur du paquet. Donc, pour une fonction privée, on utilise le <em>camelCase</em>, et pour une fonction publique, on utilise le <em>PascalCase</em>.</p>
+<p>Si la fonction ne retourne rien, alors on doit omettre le type de retour. On ne doit <strong>pas</strong> utiliser <code>void</code> comme dans d’autres langages.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a><span class="kw">func</span> allo(name <span class="dt">string</span>) {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>    fmt.Printf(<span class="st">&quot;Allo %s !</span><span class="ch">\n</span><span class="st">&quot;</span>, name)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Sortie :</p>
+<pre><code>Allo Alice !</code></pre>
+<p>Voici une fonction qui fait un calcul simple et retourne le résultat :</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a><span class="kw">func</span> square(x <span class="dt">int</span>) <span class="dt">int</span> {</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>    <span class="kw">return</span> x * x</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Sortie avec l’appel <code>fmt.Println(square(4))</code> : <code>16</code></p>
+<p>Il est possible pour une fonction de retourner plus qu’une valeur. Les types de retours doivent être séparés par des virgules, et des parenthèses doivent être utilisées autour des types de retour.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="kw">func</span> nomFonction(param1 type1, param2 type2, ...) (typeRetour1, typeRetour2, ...) {}</span></code></pre></div>
+<p>Voici une fonction qui retourne les 2 valeurs données en paramètre, mais en ordre inverse.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a><span class="kw">func</span> swap(x <span class="dt">int</span>, y <span class="dt">int</span>) (<span class="dt">int</span>, <span class="dt">int</span>) {</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a>    <span class="kw">return</span> y, x</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Appel de la fonction :</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>a, b := <span class="dv">2</span>, <span class="dv">5</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>fmt.Println(swap(a, b))</span></code></pre></div>
+<p>Sortie : <code>5 2</code></p>
+<p>Voici une autre fonction pour échanger des valeurs, mais elle ne fonctionne pas :</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a><span class="kw">func</span> swap2(x <span class="dt">int</span>, y <span class="dt">int</span>) {</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a>    temp := x</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true"></a>    x = y</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true"></a>    y = temp</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Appel de la fonction :</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>a, b := <span class="dv">2</span>, <span class="dv">5</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>fmt.Println(a, b)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a>swap2(a, b)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>fmt.Println(a, b)</span></code></pre></div>
+<p>Sortie :</p>
+<pre><code>2 5
+2 5</code></pre>
+<p>Plus de détails vont être donnés dans le chapitre suivant, mais la raison pourquoi cette fonction n’a aucun effet sur les variables <code>a</code> et <code>b</code> est que la fonction travaille sur des copies des valeurs de <code>a</code> et <code>b</code>. Les variables <code>x</code> et <code>y</code> sont initialisés avec les valeurs de <code>a</code> et <code>b</code>, mais sont indépendantes de <code>a</code> et <code>b</code>.</p>
+<p>La meilleure façon d’échanger les valeurs de deux variables en Go est celle-ci : <code>b, a = a, b</code>. <code>b</code> va obtenir la valeur de <code>a</code>, et <code>a</code> va obtenir la valeur de <code>b</code>. Ça fonctionne parce que les changements de valeurs vont se faire en parallel.</p>
+<h2 id="section-5-les-conditionnelles">Section 5 : les conditionnelles</h2>
+<h3 id="if-...-else"><code>if ... else</code></h3>
+<p>La particularité des conditionnelles dans le langage Go est qu’on ne place pas la condition entre parenthèses, et que les accolades sont obligatoires autour du code à exécuter dans la partie <code>if</code> et dans la partie <code>else</code>, même s’il y a seulement une ligne de code à exécuter. De plus, l’accolade d’ouverture <code>{</code> doit être sur la même ligne que le <code>if</code> ou le <code>else</code>.</p>
+<p>Utilisez les opérateurs <code>&amp;&amp;</code> pour la conjonction (et), <code>||</code> pour la disjonction (ou) et <code>!</code> pour la négation. Ajouter des parenthèses au besoin pour s’assurer que les opérateurs sont appliqués dans le bon ordre.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a><span class="kw">func</span> conditional1(x <span class="dt">int</span>) {</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a>    <span class="kw">if</span> x &gt; <span class="dv">0</span> {</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;x = %d est plus grand que 0</span><span class="ch">\n</span><span class="st">&quot;</span>, x)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true"></a>    } <span class="kw">else</span> {</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;x = %d est plus petit ou égal à 0</span><span class="ch">\n</span><span class="st">&quot;</span>, x)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true"></a>    }</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Sortie pour des appels avec les valeurs 5, 0, et -5 :</p>
+<pre><code>x = 5 est plus grand que 0
+x = 0 est plus petit ou égal à 0
+x = -5 est plus petit ou égal à 0</code></pre>
+<p>Il n’y a pas de syntaxe particulière pour les séquences de <code>if ... else</code>, il faut simplement démarrer un autre <code>if ... else</code> tout de suite après le premier <code>else</code>.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true"></a><span class="kw">func</span> conditional2(x <span class="dt">int</span>) {</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true"></a>    <span class="kw">if</span> x &gt; <span class="dv">0</span> {</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;x = %d est plus grand que 0</span><span class="ch">\n</span><span class="st">&quot;</span>, x)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true"></a>    } <span class="kw">else</span> <span class="kw">if</span> x == <span class="dv">0</span> {</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true"></a>        fmt.Println(<span class="st">&quot;x est égal à 0&quot;</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true"></a>    } <span class="kw">else</span> {</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;x = %d est plus petit que 0</span><span class="ch">\n</span><span class="st">&quot;</span>, x)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true"></a>    }</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Sortie pour des appels avec les valeurs 5, 0, et -5 :</p>
+<pre><code>x = 5 est plus grand que 0
+x est égal à 0
+x = -5 est plus petit que 0</code></pre>
+<h3 id="switch"><code>switch</code></h3>
+<p>Un <em>switch</em> (<em>aiguillage</em>) est une bonne façon de simplifier la syntaxe quand on a besoin d’une série de <code>if ... else</code>. Il existe 2 principales formes de <code>switch</code> en Go : un <code>switch</code> sur une variable avec des cas sur différentes valeurs possibles de la variable, et un <code>switch</code> sans variable avec des cas sur des expressions booléennes.</p>
+<h4 id="switch-sans-variable"><code>switch</code> sans variable</h4>
+<div class="sourceCode" id="cb25"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true"></a><span class="kw">func</span> conditional3(x <span class="dt">int</span>) {</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true"></a>    <span class="kw">switch</span> {</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true"></a>    <span class="kw">case</span> x &gt; <span class="dv">0</span>:</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;x = %d est plus grand que 0</span><span class="ch">\n</span><span class="st">&quot;</span>, x)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true"></a>    <span class="kw">case</span> x == <span class="dv">0</span>:</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true"></a>        fmt.Println(<span class="st">&quot;x est égal à 0&quot;</span>)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true"></a>    <span class="kw">case</span> x &lt; <span class="dv">0</span>:</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;x = %d est plus petit que 0</span><span class="ch">\n</span><span class="st">&quot;</span>, x)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true"></a>    }</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Sortie pour des appels avec les valeurs 5, 0, et -5 : même que l’exemple précédent.</p>
+<p>Cet exemple correspond presque exactement à l’exemple précédent écrit avec des <code>if ... else</code>, sauf pour le dernier cas qui pourrait être remplacé par le cas spécial <code>default</code> qui correspond au dernier <code>else</code> d’une série de <code>if ... else</code>. On obtiendra la même sortie avec ce changement.</p>
+<p>Dans ce cas-ci, remplacer <code>case x &lt; 0</code> par <code>default</code> est approprié parce que la condition <code>x &lt; 0</code> couvre toutes les possibilités restantes. Notez qu’il n’est pas nécessaire d’utiliser des <code>break</code> pour terminer chaque cas.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true"></a><span class="kw">func</span> conditional4(x <span class="dt">int</span>) {</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true"></a>    <span class="kw">switch</span> {</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true"></a>    <span class="kw">case</span> x &gt; <span class="dv">0</span>:</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;x = %d est plus grand que 0</span><span class="ch">\n</span><span class="st">&quot;</span>, x)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true"></a>    <span class="kw">case</span> x == <span class="dv">0</span>:</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true"></a>        fmt.Println(<span class="st">&quot;x est égal à 0&quot;</span>)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true"></a>    <span class="kw">default</span>:</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;x = %d est plus petit que 0</span><span class="ch">\n</span><span class="st">&quot;</span>, x)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true"></a>    }</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true"></a>}</span></code></pre></div>
+<h4 id="switch-avec-variable"><code>switch</code> avec variable</h4>
+<div class="sourceCode" id="cb27"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true"></a><span class="kw">func</span> conditional5(name <span class="dt">string</span>) {</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true"></a>    <span class="kw">switch</span> name {</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true"></a>    <span class="kw">case</span> <span class="st">&quot;Denis&quot;</span>:</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true"></a>        fmt.Println(<span class="st">&quot;Bonjour Prof. Denis !&quot;</span>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true"></a>    <span class="kw">case</span> <span class="st">&quot;&quot;</span>:</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true"></a>        fmt.Println(<span class="st">&quot;Bonjour Inconnu !&quot;</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true"></a>    <span class="kw">default</span>:</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;Allo %s !</span><span class="ch">\n</span><span class="st">&quot;</span>, name)</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true"></a>    }</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Sortie pour des appels avec les valeurs <code>"Denis"</code>, <code>""</code>, et <code>"Alice"</code> :</p>
+<pre><code>Bonjour Prof. Denis !
+Bonjour Inconnu !
+Allo Alice !</code></pre>
+<p>Lorsqu’on <em>switch</em> sur une variable, les cas doivent être des valeurs spécifiques de la variable. Si on veut grouper plusieurs valeurs dans un même cas, on peut les séparer par des virgules, comme dans l’exemple suivant.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true"></a><span class="kw">func</span> conditional6(name <span class="dt">string</span>) {</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true"></a>    <span class="kw">switch</span> name {</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true"></a>    <span class="kw">case</span> <span class="st">&quot;Denis&quot;</span>, <span class="st">&quot;Benoit&quot;</span>:</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;Bonjour Prof. %s !</span><span class="ch">\n</span><span class="st">&quot;</span>, name)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true"></a>    <span class="kw">case</span> <span class="st">&quot;&quot;</span>:</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true"></a>        fmt.Println(<span class="st">&quot;Bonjour Inconnu !&quot;</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true"></a>    <span class="kw">default</span>:</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;Allo %s </span><span class="ch">\n</span><span class="st">!&quot;</span>, name)</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true"></a>    }</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true"></a>}</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Sortie pour des appels avec les valeurs <code>"Denis"</code> et <code>"Benoit"</code> :</p>
+<pre><code>Bonjour Prof. Denis !
+Bonjour Prof. Benoit !</code></pre>
+<h2 id="section-6-les-boucles">Section 6 : les boucles</h2>
+<h3 id="boucle-avec-un-compteur">Boucle avec un compteur</h3>
+<p>À la base, les boucles <em>pour</em> en Go ressemblent aux boucles <em>pour</em> dans d’autres langages comme C et Java, avec quelques différences :</p>
+<ul>
+<li>il n’y a pas de parenthèses <code>()</code> autour des 3 composantes principales de la boucle <em>pour</em>: <code>initialisation ; condition ; incrémentation</code></li>
+<li>le compteur de la boucle est normalement défini avec la notation abrégée utilisant le symbole <code>:=</code></li>
+<li>les 3 composantes principales sont optionnelles</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true"></a><span class="kw">func</span> loop1() {</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true"></a>    <span class="kw">for</span> i := <span class="dv">0</span>; i &lt; <span class="dv">5</span>; i++ {</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true"></a>        fmt.Print(i, <span class="st">&quot; &quot;</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true"></a>    }</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true"></a>    fmt.Println()</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Sortie :</p>
+<pre><code>0 1 2 3 4</code></pre>
+<h3 id="les-boucles-de-type-while">Les boucles de type <em>while</em></h3>
+<p>Techniquement, il n’y a pas de boucles <em>while</em> en Go. Le seul type de boucle utilise <em>for</em>, comme démontré dans l’exemple précédent. Puisque les parties <em>initialisation</em> et <em>incrémentation</em> sont optionnelles, on peut écrire une boucle uniquement avec la condition.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true"></a><span class="kw">func</span> loop2() {</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true"></a>    i := <span class="dv">0</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true"></a>    <span class="kw">for</span> i &lt; <span class="dv">5</span> {</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true"></a>        fmt.Print(i, <span class="st">&quot; &quot;</span>)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true"></a>        i++</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true"></a>    }</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true"></a>    fmt.Println()</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true"></a>}</span></code></pre></div>
+<p>La sortie est la même que l’exemple précédent.</p>
+<h3 id="boucle-sans-condition">Boucle sans condition</h3>
+<p>Voici une <strong>très mauvaise</strong> manière d’écrire une boucle qui produit le même résultat, qui est techniquement légale, elle obéit à la syntaxe du langage, mais qui est beaucoup plus difficile à lire, et qui peut causer des problèmes de maintenance de code plus tard.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true"></a><span class="kw">func</span> loop3() {</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true"></a>    i := <span class="dv">0</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true"></a>    <span class="kw">for</span> {</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true"></a>        fmt.Print(i, <span class="st">&quot; &quot;</span>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true"></a>        i++</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true"></a>        <span class="kw">if</span> i &gt;= <span class="dv">5</span> {</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true"></a>            <span class="kw">break</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true"></a>        }</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true"></a>    }</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true"></a>    fmt.Println()</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true"></a>}</span></code></pre></div>
+<p>À première vue, la boucle ressemble à une boucle infinie parce qu’il n’y a pas de condition après le <code>for</code>, ce qui est légal en Go. C’est la même chose que s’il y avait une condition qui est toujours vraie, comme <code>for true</code> (ou comme <code>while (true)</code> en Java). Mais cette boucle n’est pas vraiment infinie parce qu’il y a une condition à l’intérieur qui devient vraie à un moment donné et qui fait un <code>break</code> pour sortir de la boucle.</p>
+<p>En général, il faut éviter les boucles infinies ou qui en apparence ont l’air infinie parce qu’elles sont plus difficiles à lire et à déboguer. Les vraies boucles infinies sont utiles dans certaines situations très particulières, comme l’implémentation d’un serveur qui doit attendre un nombre indéfini de connexions ou de requêtes, mais ces situations particulières sont rares.</p>
+<h3 id="boucles-sur-les-tableaux">Boucles sur les tableaux</h3>
+<p>Voici comment définir un tableau de nombres entiers avec valeurs initiales, et comment faire une boucle sur le tableau en utilisant les index, ou positions, des éléments dans le tableau, pour écrire tous les éléments du tableau sur le <em>stdout</em> avec un format particulier. On utilise la fonction <code>len</code> pour obtenir la longueur d’un tableau.</p>
+<p>On peut également donner un tableau directement à la fonction <code>Println</code> pour en écrire le contenu.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true"></a><span class="kw">func</span> loop4() {</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true"></a>    numbers := [<span class="dv">7</span>]<span class="dt">int</span>{<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">7</span>}</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true"></a>    <span class="kw">for</span> i := <span class="dv">0</span>; i &lt; <span class="bu">len</span>(numbers); i++ {</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;numbers[%d] = %d</span><span class="ch">\n</span><span class="st">&quot;</span>, i, numbers[i])</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true"></a>    }</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true"></a>    fmt.Println(numbers)</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Sortie :</p>
+<pre><code>numbers[0] = 2
+numbers[1] = 5
+numbers[2] = 3
+numbers[3] = 4
+numbers[4] = 7
+numbers[5] = 1
+numbers[6] = 7
+[2 5 3 4 7 1 7]</code></pre>
+<p>Si on n’initialise pas le tableau immédiatement avec des valeurs spécifiées entre accolades immédiatement après le type <code>[7]int</code>, alors le tableau sera initialisé avec les valeurs zéro du type, dans ce cas-ci <code>0</code> à cause du type <code>int</code>. Il est possible de remplacer la longueur <code>7</code> par <code>...</code> pour que le compilateur calcule la longueur automatiquement. Il est également possible de ne rien spécifier entre les <code>[]</code>, mais dans ce cas, on n’obtiendra pas un tableau, mais une <em>slice</em> (tranche). Les tableaux et les tranches se ressemblent, mais il y a des différences en termes de leurs propriétés et de la gestion de la mémoire. Plus de détails viendront à ce sujet dans le prochain chapitre.</p>
+<p>Il existe une meilleure façon de parcourir tous les éléments d’un tableau en Go : en utilisant <code>range</code>.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true"></a><span class="kw">func</span> loop5() {</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true"></a>    numbers := [...]<span class="dt">int</span>{<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">7</span>}</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true"></a>    <span class="kw">for</span> i, number := <span class="kw">range</span> numbers {</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;numbers[%d] = %d</span><span class="ch">\n</span><span class="st">&quot;</span>, i, number)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true"></a>    }</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true"></a>    fmt.Println(numbers)</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true"></a>}</span></code></pre></div>
+<p>La sortie est la même que l’exemple précédent. À chaque tour de boucle, <code>i</code> a l’index courant, et <code>number</code> a la valeur de l’élément courant du tableau. Les avantages de ce type de boucle est qu’on n’a pas besoin de gérer l’index manuellement, il est incrémenté automatiquement, et la fin de boucle est vérifiée aussi automatiquement. Les désavantages de ce type de boucle sont qu’on ne pas modifier le contenu du tableau dans la boucle, et on ne peut pas parcourir les éléments du tableau dans un ordre différent (par exemple, de la fin vers le début).</p>
+<p>Si on n’a pas besoin des index, mais seulement des valeurs des éléments dans le tableau, on doit alors faire la boucle de la façon suivante.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true"></a><span class="kw">package</span> main</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true"></a><span class="kw">func</span> loop6() {</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true"></a>    numbers := [...]<span class="dt">int</span>{<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">7</span>}</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true"></a>    <span class="kw">for</span> _, number := <span class="kw">range</span> numbers {</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true"></a>        fmt.Printf(<span class="st">&quot;%d &quot;</span>, number)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true"></a>    }</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true"></a>    fmt.Println()</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Sortie :</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true"></a><span class="dv">2</span> <span class="dv">5</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">7</span> <span class="dv">1</span> <span class="dv">7</span> </span></code></pre></div>
+<p>Dans le langage Go, toutes les variables déclarées doivent être utilisées au moins une fois. Puisque dans cet exemple, on ne veut pas utiliser l’index des éléments du tableau, on utilise la barre de soulignement <code>_</code> à la place d’un nom de variable. Si on écrivait <code>i</code> à la place de <code>_</code> dans cet exemple, on obtiendrait l’erreur <code>i declared and not used</code>.</p>
+<h2 id="références">Références</h2>
+<ol type="1">
+<li><a href="https://devhints.io/go">Go cheatsheet</a></li>
+<li><a href="https://go.dev/tour/list">A tour of Go</a></li>
+<li><a href="https://pkg.go.dev/fmt">Paquet <code>fmt</code></a></li>
+</ol>
+</body>
+</html>
