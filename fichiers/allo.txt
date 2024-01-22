@@ -1,0 +1,6 @@
+Allo, comment ça va ?
+Bien, et vous ?
+
+Au revoir.
+
+Bye.

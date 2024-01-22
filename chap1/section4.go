@@ -14,7 +14,7 @@ func swap(x int, y int) (int, int) {
 	return y, x
 }
 
-// cette fonction ne fonctionnera pas correctement, elle va échanger les valeurs seulement localement dans la fonction;
+// Cette fonction ne fonctionnera pas correctement, elle va échanger les valeurs seulement localement dans la fonction ;
 // il n'y aura aucun effet en dehors de la fonction
 func swap2(x int, y int) {
 	temp := x
