@@ -96,7 +96,7 @@ func section3c() {
 	}
 
 	// Ouvrir le fichier en mode écriture
-	file, err := os.OpenFile("people.json", os.O_CREATE|os.O_WRONLY, 0644)
+	file, err := os.OpenFile("people.json", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0644)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -118,7 +118,7 @@ func section3c() {
 		return
 	}
 
-	// Désérialiser les données JSON pour recréer une slice de Person
+	// Désérialiser les données JSON pour recréer une tranche de Person
 	var people2 []Person
 	err = json.Unmarshal(data, &people2)
 	if err != nil {
